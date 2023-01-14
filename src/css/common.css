@@ -16,3 +16,33 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.Example-btn7 {
+  font-family: Roboto, sans-serif;
+  font-weight: 0;
+  font-size: 14px;
+  color: #fff;
+  background-color: #ff8000;
+  padding: 10px 30px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  border-radius: 50px;
+  transition: 1000ms;
+  transform: translateY(0);
+}
+.Example-btn7:hover {
+    transition: 1000ms;
+    padding: 10px 50px;
+    transform: translateY(-0px);
+    background-color: #ff8000e2;
+    color: #000000;
+    border: none;
+}
+
+.Example-btn7:disabled{
+  background-color: #787470e2;
+}
+
+.timer{
+  display: flex;
+}
