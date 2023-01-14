@@ -2,7 +2,7 @@
   "name": "pgoit-js-hw-09",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://goitacademy.github.io/pgoit-js-hw-09",
+  "homepage": "https://ZhukovaYu.github.io/goit-js-hw-09",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
