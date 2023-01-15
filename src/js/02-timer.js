@@ -2,6 +2,8 @@
 import flatpickr from "flatpickr";
 // Додатковий імпорт стилів
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 
 const refs = {
@@ -19,7 +21,7 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
+      onCloseInput(selectedDates);
   },
 };
 
@@ -35,7 +37,7 @@ function onCloseInput(selectedDates) {
   selectedDate = selectedDates[0];
 
   if (selectedDate <= options.defaultDate) {
-    alert('Please choose a date in the future');
+    Notify.failure('Please choose a date in the future');
     return;
   }
 
@@ -46,7 +48,7 @@ function onCloseInput(selectedDates) {
 
 function onStartClick() {
   if (selectedDate <= new Date()) {
-    alert('Please choose a date in the future');
+    Notify.failure('Please choose a date in the future');
     refs.start.setAttribute('disabled', 'true');
     const ms = 0;
     buildTimer(ms);
