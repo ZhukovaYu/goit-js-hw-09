@@ -13,19 +13,19 @@ const createPromise = (position, delay) => {
   });
 };
 
-const onFormSubmit = el => {
+const onFormSub = el => {
   el.preventDefault();
   const step = el.currentTarget.elements.step.value;
-  let delay = el.currentTarget.elements.delay.value;
+  const delay = el.currentTarget.elements.delay.value;
   const amount = el.currentTarget.elements.amount.value;
   for (let i = 0; i < amount; i += 1) {
     setTimeout(() => {
-      createPromise(i, delay)
-        .then(({ position, delay }) => { Notiflix.Notify.success(`Fulfilled promise ${position} in ${delay}ms`); })
-        .catch(({ position, delay }) => { Notiflix.Notify.failure(`Rejected promise ${position} in ${delay}ms`); });
-      delay += step;
-    }
-  )};
+      createPromise(i + 1, +delay + i * +step)
+        .then(message => Notiflix.Notify.success(message))
+        .catch(message => Notiflix.Notify.failure(message));
+    }, +delay + i * +step);
+  }
+  e.currentTarget.reset();
 };
 
-form.addEventListener('submit', onFormSubmit);
+form.addEventListener('submit', onFormSub);
